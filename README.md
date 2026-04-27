@@ -1,5 +1,5 @@
 # Custom-Actions
-A monorepo consisting of our github actions modules
+A monorepo consisting of our github actions modules. Each directory has its own readme going into further detail with how to use each directory
 
 All repos can be used by creating the following github actions workflow:
 
