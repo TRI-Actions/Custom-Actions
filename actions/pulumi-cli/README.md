@@ -26,7 +26,7 @@ The output in actions context is `drift-status` and can either `DRIFTED` or `IN-
 ``` yaml
 - name: Pulumi Plan
   id: plan
-  uses: TRI-Actions/pulumi-cli@v0.0.1
+  uses: TRI-Actions/custom-actions/actions/pulumi-cli@main
     with:
       workdir: ${{ inputs.acccount_id }}
       action: plan

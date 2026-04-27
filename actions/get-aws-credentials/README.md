@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Get AWS Credentials
-        uses: TRI-Actions/get-aws-credentials@v1
+        uses: TRI-Actions/custom-actions/actions/get-aws-credentials@v1
         with:
           account-id: 222222222222
           federated-role-name: CustomFederatedRole  # optional override

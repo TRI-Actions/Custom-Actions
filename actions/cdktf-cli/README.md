@@ -26,7 +26,7 @@ The output in actions context is `drift-status` and can either `DRIFTED` or `IN-
 ``` yaml
 - name: CDK Plan
   id: plan
-  uses: TRI-Actions/cdktf-cli@v0.0.1
+  uses: TRI-Actions/custom-actions/actions/cdktf-cli@main
     with:
       workdir: ${{ inputs.acccount_id }}
       action: plan

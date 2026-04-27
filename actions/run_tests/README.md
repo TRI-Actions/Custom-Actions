@@ -28,7 +28,7 @@ inputs:
    
       steps:
         - name: run composite module
-          uses: TRI-Actions/run_tests@main
+          uses: TRI-Actions/custom-actions/actions/run_tests@main
           with:
             test_path: /my_path
             starting_file: dockerfile_path

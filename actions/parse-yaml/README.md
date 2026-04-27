@@ -108,7 +108,7 @@ jobs:
 
     - name: Run YAML to Github Output Action for 'build' settings
       id: yaml-output-build
-      uses: infrastructure/parse-yaml@v0.0.1
+      uses: TRI-Actions/custom-actions/actions/parse-yaml@main
       with:
         file_path: path/to/settings.yaml
         format_type: crud
@@ -118,7 +118,7 @@ jobs:
 
     - name: Run YAML to Github Output Action for 'deployment' settings
       id: yaml-output-deployment
-      uses: infrastructure/parse-yaml@v0.0.1
+      uses: TRI-Actions/custom-actions/actions/parse-yaml@main
       with:
         file_path: path/to/settings.yaml
         format_type: crud

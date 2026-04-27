@@ -14,5 +14,5 @@ This is a simple Action that outputs pre-commit checks
    
       steps:
         - name: run composite module
-          uses: TRI-Actions/pre-commit-checks@main
+          uses: TRI-Actions/custom-actions/actions/pre-commit-checks@main
 ```

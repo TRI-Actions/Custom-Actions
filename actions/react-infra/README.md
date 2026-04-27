@@ -40,7 +40,7 @@ jobs:
  
     steps:
       - name: run composite module
-        uses: TRI-Actions/web-app-infra@main
+        uses: TRI-Actions/custom-actions/actions/web-app-infra@main
         with:
           AWS_IAM_Role: arn:aws:iam::1234567890123:role/{IAM_ROLE_NAME}
           SSM_private_keys: /key/location/1,/key/location/2

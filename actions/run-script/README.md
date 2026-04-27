@@ -21,7 +21,7 @@ jobs:
 
     - name: Run script
       id: run_script
-      uses: TRI-Actions/run-script@main
+      uses: TRI-Actions/custom-actions/actions/run-script@main
       with:
         path: "."
 
