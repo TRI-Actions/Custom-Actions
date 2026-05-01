@@ -46,13 +46,9 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const { exec } = require('child_process');
-            exec('pre-commit run --all-files --verbose', (error, stdout, stderr) => {
-              if (error) {
-                console.error(`Error executing pre-commit: ${error}`);
-                return;
-              }
-              const commentBody = `### Pre-commit Failed\n\`\`\`\n${stdout}\n\`\`\``;
+            const { execSync } = require('child_process');
+            const stdout = execSync('pre-commit run --all-files --verbose', { encoding: 'utf8' });
+            const commentBody = `### Pre-commit Failed\n\`\`\`\n${stdout}\n\`\`\``;
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
