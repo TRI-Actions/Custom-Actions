@@ -27,7 +27,6 @@ jobs:
 
       - name: Run pre-commit
         id: pre-commit
-        continue-on-error: true
         run: |
           pre-commit run --all-files --verbose > precommit.log 2>&1
 
