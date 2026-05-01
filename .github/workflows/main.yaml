@@ -30,7 +30,7 @@ jobs:
         run: pre-commit run --all-files
       
       - name: Commit fixes (if any)
-        if: ${{ steps.pre-commit.outcome == 'failure' }}
+        if: ${{ steps.pre-commit.outcome == 'failure' && always() }}
         run: |
           if ! git diff --quiet; then
             git config user.name "github-actions"
@@ -42,7 +42,7 @@ jobs:
             echo "No changes to commit"
           fi
       - name: Create PR comment with linting results
-        if: ${{ steps.pre-commit.outcome == 'failure' }}
+        if: ${{ steps.pre-commit.outcome == 'failure' && always()}}
         uses: actions/github-script@v7
         with:
           script: |
