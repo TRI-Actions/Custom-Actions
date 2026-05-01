@@ -49,11 +49,10 @@ jobs:
             const { execSync } = require('child_process');
             const stdout = execSync('pre-commit run --all-files --verbose', { encoding: 'utf8' });
             const commentBody = `### Pre-commit Failed\n\`\`\`\n${stdout}\n\`\`\``;
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: commentBody
-              });
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
             });
           
