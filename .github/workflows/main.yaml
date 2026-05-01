@@ -1,0 +1,42 @@
+name: Linting
+run-name: Linting
+
+permissions: read-all
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+      
+      - name: Run pre-commit
+        continue-on-error: true
+        run: pre-commit run --all-files
+      
+      - name: Commit fixes (if any)
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add -A ':! .github/workflows/*'
+            git commit -m "apply pre-commit fixes"
+            git push origin HEAD:${{ github.head_ref }}
+          else
+            echo "No changes to commit"
+          fi
